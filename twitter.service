@@ -1,0 +1,15 @@
+[Unit]
+Description="save tweets"
+
+[Service]
+ExecStart=/bin/bash -c "cd /home/nona/codes/twitter; /home/nona/.gem/ruby/2.2.0/bin/bundle exec ruby tweets.rb"
+ExecReload=/bin/bash -c "cd /home/nona/codes/twitter; /home/nona/.gem/ruby/2.2.0/bin/bundle exec ruby tweets.rb"
+KillMode=control-group
+Restart=on-failure
+RestartSec=5s
+
+Type=simple
+
+[Install]
+WantedBy=default.target
+
